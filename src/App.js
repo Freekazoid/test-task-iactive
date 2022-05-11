@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './reset.css';
+import './index.css';
+
+import React, { useState, useEffect } from 'react';
+
+import Messanger from './view/messanger'
+import Button from './components/buttons'
 
 function App() {
+
+  const [reverseList, setReverseList] = useState(false);
+
+  const handleClickReList = () => {
+    setReverseList(!reverseList)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Messanger reverse={reverseList} />
+      <Button className="reverse list" onClick={handleClickReList}>reverse list</Button>
     </div>
   );
 }
